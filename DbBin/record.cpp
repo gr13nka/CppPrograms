@@ -2,32 +2,42 @@
 
 record::record() : id(0)
 {
-	strcpy_s(name, " "); strcpy_s(surname, " "); strcpy_s(parent, " ");
+	strcpy(name, " "); strcpy(surname, " "); strcpy(parent, " ");
 }
 
 record::record(const char* name, const char* surname, const char* parent) : id(0)
 {
-	strcpy_s(this->name, name);
-	strcpy_s(this->surname, surname);
-	strcpy_s(this->parent, parent);
+	strcpy(this->name, name);
+	strcpy(this->surname, surname);
+	strcpy(this->parent, parent);
 }
 
-void record::changeName(const char n[])
+char* record::InputText()
 {
+    char * text = new char[15];
+    cout<<"Enter text: ";
+    cin>>text;
+    return text;
+}
+
+void record::changeName()
+{
+    char* n= new char[15]; 
+    n = InputText();
 	memset(name, ' ', N);
-	strcpy_s(name, n);
+	strcpy(name, n);
 }
 
 void record::changeSurname(char n[])
 {
 	memset(surname, ' ', N);
-	strcpy_s(surname, n);
+	strcpy(surname, n);
 }
 
 void record::changeParent(char n[])
 {
 	memset(parent, ' ', N);
-	strcpy_s(parent, n);
+	strcpy(parent, n);
 }
 int record::getID()
 {
@@ -49,24 +59,12 @@ char* record::getParent()
 	return parent;
 }
 
-template <typename T>
-static void record::singleStyling(ostream& out, const char* field, T value, int wide_field, int wide_value, int color)
+std::ostream &operator<<(ostream &out, record &rec)
 {
-	HANDLE hConsole;
-	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, color);
-	out << left << setw(wide_field) << field << setw(wide_value) << value << endl;
-	SetConsoleTextAttribute(hConsole, 15);
-}
-
-ostream& operator<<(ostream& out, record& rec)
-{
-	int wide_field = 20, wide_value = 15;
-	char styling[] = "-----------------------------";
-	record::singleStyling(out, "ID:", rec.id, wide_field, wide_value, 2);
-	record::singleStyling(out, "Name:", rec.name, wide_field, wide_value, 3);
-	record::singleStyling(out, "Surname:", rec.surname, wide_field, wide_value, 2);
-	record::singleStyling(out, "parent:", rec.parent, wide_field, wide_value, 3);
-	out << styling << endl;
-	return out;
+	out << "-----------------------------"<< '\n';
+    out << "ID:"<<  rec.id << '\n';
+    out << "Name: "<<  rec.name << '\n';
+    out << "Surname:"<<  rec.surname << '\n';
+    out << "parent:"<<  rec.parent << '\n';
+    return out;
 }

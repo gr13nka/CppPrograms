@@ -3,7 +3,6 @@
 #include <cstring>
 #include <iostream>
 #include <iomanip>
-#include <windows.h>
 
 using namespace std;
 
@@ -16,12 +15,11 @@ private:
 	char name[N];
 	char surname[N];
 	char parent[N];
-	template <typename T>
-	static void singleStyling(ostream& out, const char* field, T value, int wide_field, int wide_value, int color);
 public:
 	record();
 	record(const char* name, const char* surname, const char* parent);
-	void changeName(const char n[]);
+    char * InputText();
+	void changeName();
 	void changeSurname(char n[]);
 	void changeParent(char n[]);
 	int getID();
@@ -29,5 +27,6 @@ public:
 	const char* getSurname();
 	char* getParent();
 	friend class Database;
-	friend ostream& operator<<(ostream& out, record& rec);
+    friend std::ostream &operator<<(std::ostream &out, record &rec);
 };
+

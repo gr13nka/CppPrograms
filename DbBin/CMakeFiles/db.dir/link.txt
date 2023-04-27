@@ -1,0 +1,1 @@
+/run/current-system/sw/bin/c++ CMakeFiles/db.dir/main.cpp.o CMakeFiles/db.dir/record.cpp.o CMakeFiles/db.dir/Database.cpp.o CMakeFiles/db.dir/interface.cpp.o -o db 

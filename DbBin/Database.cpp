@@ -2,7 +2,6 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-
 Database::Database(string filename) : filename(filename)
 {
 	count = 0;
@@ -112,6 +111,8 @@ void Database::showRecords(list<record> listOfRecords)
 	for (it; it != listOfRecords.end(); ++it)
 		cout << (*it);
 }
+
+
 
 list<record> Database::searchForRecords(bool predicate(record parameter))
 {
