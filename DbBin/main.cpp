@@ -3,10 +3,10 @@
 #include "record.h"
 #include <stdlib.h>
 #include <termios.h>
+#include <functional>
 #include <unistd.h>
 #include <stdio.h>
 
-/* reads from keypress, doesn't echo */
 int getch(void)
 {
     struct termios oldattr, newattr;
@@ -20,18 +20,19 @@ int getch(void)
     return ch;
 }
 
-const char* choices[6] = {
+const char* choices[7] = {
 					"add record",
 					"remove record",
 					"delete db",
 					"edit record",
                     "show db",
+                    "find record",
 					"exit"
 };
 
 void print_menu(int choice)
 {
-	for (int i = 0; i < 5; ++i)
+	for (int i = 0; i < 7; ++i)
 	{
 		if (choice == i)
 		{
@@ -61,9 +62,11 @@ int ChooseFunction()
 
     while (true) {
 
-	    if(choice > 4 || choice < 0) 
+	    if(choice > 6) 
 		    choice = 0;
-    
+        if (choice < 0)
+            choice = 6;
+
 	    print_menu(choice);
 	
         int ch = getch();
@@ -108,9 +111,65 @@ void EditRecord(record r)
     }
 }
 
+std::string AskName() {
+    std::string name;
+    std::cin>>name;
+    return name;
+}
+
+bool searchById(record r,const std::string &name){
+
+    int id = std::atoi(name.c_str());
+    return r.getID() == id;
+}
+
+bool searchByName(record r,const std::string &name){
+    return r.getName() == name;
+}
+bool searchBySurname(record r,const std::string &name){
+    return r.getSurname() == name;
+}
+bool searchByParent(record r,const std::string &name){
+    return r.getParent() == name;
+}
+void ChooseSearchType(Database db, record r){
+	list<record> listOfRecords; 
+    std::cout << "How you want to search by id name surname or parent? press 123 or 4"<<'\n';
+    int choice = getch();
+    std::string name = AskName();
+    
+    switch(choice){
+        case 1:
+            std::cout << "what id you want to find?"<<'\n';
+            listOfRecords = db.searchForRecords(searchById,name);
+            break;
+        case 2:
+            std::cout << "what name you want to find?"<<'\n';
+            listOfRecords = db.searchForRecords(searchByName,name);
+            break;
+        case 3:
+            std::cout << "what surname you want to find?"<<'\n';
+            listOfRecords = db.searchForRecords(searchBySurname,name);
+            break;
+        case 4:
+            std::cout << "what parent you want to find?"<<'\n';
+            listOfRecords = db.searchForRecords(searchByParent,name);
+            break;
+    }
+}
+
+int AskID(){
+    int name;
+    std::cin>>name;
+    return name;
+}
+
 int RunFunctionSelected(int choice, Database db, record r){
+    //std::string name = AskName();
+	//list<record> listOfRecords = db.searchForRecords(searchpredicate,name);
 
 	list<record> listOfRecords = db.databaseToList();
+    int RecordId = 0;
 	switch (choice)
 	{
 	case 0:
@@ -118,7 +177,7 @@ int RunFunctionSelected(int choice, Database db, record r){
 		db.addRecordToDatabase(r);
 		break;
 	case 1:
-        int RecordId = 0;
+        RecordId = AskID();
 		db.deleteRecordFromDatabase(RecordId);
 		break;
 	case 2:
@@ -132,9 +191,13 @@ int RunFunctionSelected(int choice, Database db, record r){
         db.showRecords(listOfRecords);
         break;
     case 5:
+        ChooseSearchType(db,r);
 		return 0;
 		break;
-	}
+    case 6:
+		return 0;
+		break;
+    } 
 }
 
 int main()

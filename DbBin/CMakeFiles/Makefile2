@@ -45,10 +45,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /nix/store/y3af200bfvmb7s3vcfmc30wla5iyh5kg-cmake-3.24.3/bin/cmake
+CMAKE_COMMAND = /nix/store/yryyq6r1l4plmq3f3w6r8max6452pfs0-cmake-3.24.3/bin/cmake
 
 # The command to remove a file.
-RM = /nix/store/y3af200bfvmb7s3vcfmc30wla5iyh5kg-cmake-3.24.3/bin/cmake -E rm -f
+RM = /nix/store/yryyq6r1l4plmq3f3w6r8max6452pfs0-cmake-3.24.3/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/username/Programs/cpp/DbBin
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/db.dir/all
+all: CMakeFiles/d.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/db.dir/clean
+clean: CMakeFiles/d.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/db.dir
+# Target rules for target CMakeFiles/d.dir
 
 # All Build rule for target.
-CMakeFiles/db.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/username/Programs/cpp/DbBin/CMakeFiles --progress-num=1,2,3,4,5 "Built target db"
-.PHONY : CMakeFiles/db.dir/all
+CMakeFiles/d.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/username/Programs/cpp/DbBin/CMakeFiles --progress-num=1,2,3,4,5 "Built target d"
+.PHONY : CMakeFiles/d.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/db.dir/rule: cmake_check_build_system
+CMakeFiles/d.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/username/Programs/cpp/DbBin/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/db.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/d.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/username/Programs/cpp/DbBin/CMakeFiles 0
-.PHONY : CMakeFiles/db.dir/rule
+.PHONY : CMakeFiles/d.dir/rule
 
 # Convenience name for target.
-db: CMakeFiles/db.dir/rule
-.PHONY : db
+d : CMakeFiles/d.dir/rule
+.PHONY : d
 
 # clean rule for target.
-CMakeFiles/db.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/clean
-.PHONY : CMakeFiles/db.dir/clean
+CMakeFiles/d.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/clean
+.PHONY : CMakeFiles/d.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

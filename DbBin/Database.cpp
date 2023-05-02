@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+
 Database::Database(string filename) : filename(filename)
 {
 	count = 0;
@@ -80,6 +81,13 @@ list<record> Database::databaseToList()
 	return listOfRecords;
 }
 
+//int Database::SearchForParent(char parent [15] ) {
+//	list<record> listOfRecords = db.databaseToList();
+//    strtok listofrec by ,
+  //  cnt = currentID
+    //search for parent: if == return currentID
+//}
+
 record Database::getRecordFromDatabase(int serialNumber)
 {
 	record r;
@@ -112,9 +120,11 @@ void Database::showRecords(list<record> listOfRecords)
 		cout << (*it);
 }
 
+bool Database::SearchById(record r, const int &i){
+    return r.getID() == i;
+}
 
-
-list<record> Database::searchForRecords(bool predicate(record parameter))
+list<record> Database::searchForRecords(bool predicate(record parameter, const std::string &name),const std::string &name)
 {
 	list<record> listOfRecords;
 	fstream dataFile;
@@ -123,7 +133,7 @@ list<record> Database::searchForRecords(bool predicate(record parameter))
 
 	while (dataFile.read((char*)&temporaryRecord, sizeof(record)))
 	{
-		if (predicate(temporaryRecord))
+		if (predicate(temporaryRecord,name))
 			listOfRecords.push_back(temporaryRecord);
 	}
 	dataFile.close();

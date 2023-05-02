@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /nix/store/y3af200bfvmb7s3vcfmc30wla5iyh5kg-cmake-3.24.3/bin/cmake
+CMAKE_COMMAND = /nix/store/yryyq6r1l4plmq3f3w6r8max6452pfs0-cmake-3.24.3/bin/cmake
 
 # The command to remove a file.
-RM = /nix/store/y3af200bfvmb7s3vcfmc30wla5iyh5kg-cmake-3.24.3/bin/cmake -E rm -f
+RM = /nix/store/yryyq6r1l4plmq3f3w6r8max6452pfs0-cmake-3.24.3/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/username/Programs/cpp/DbBin
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/nix/store/y3af200bfvmb7s3vcfmc30wla5iyh5kg-cmake-3.24.3/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/nix/store/yryyq6r1l4plmq3f3w6r8max6452pfs0-cmake-3.24.3/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/nix/store/y3af200bfvmb7s3vcfmc30wla5iyh5kg-cmake-3.24.3/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/nix/store/yryyq6r1l4plmq3f3w6r8max6452pfs0-cmake-3.24.3/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named db
+# Target rules for targets named d
 
 # Build rule for target.
-db: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 db
-.PHONY : db
+d : cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 d
+.PHONY : d
 
 # fast build rule for target.
-db/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/build
-.PHONY : db/fast
+d/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/build
+.PHONY : d/fast
 
 Database.o: Database.cpp.o
 .PHONY : Database.o
 
 # target to build an object file
 Database.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/Database.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/Database.cpp.o
 .PHONY : Database.cpp.o
 
 Database.i: Database.cpp.i
@@ -142,7 +142,7 @@ Database.i: Database.cpp.i
 
 # target to preprocess a source file
 Database.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/Database.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/Database.cpp.i
 .PHONY : Database.cpp.i
 
 Database.s: Database.cpp.s
@@ -150,7 +150,7 @@ Database.s: Database.cpp.s
 
 # target to generate assembly for a file
 Database.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/Database.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/Database.cpp.s
 .PHONY : Database.cpp.s
 
 interface.o: interface.cpp.o
@@ -158,7 +158,7 @@ interface.o: interface.cpp.o
 
 # target to build an object file
 interface.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/interface.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/interface.cpp.o
 .PHONY : interface.cpp.o
 
 interface.i: interface.cpp.i
@@ -166,7 +166,7 @@ interface.i: interface.cpp.i
 
 # target to preprocess a source file
 interface.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/interface.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/interface.cpp.i
 .PHONY : interface.cpp.i
 
 interface.s: interface.cpp.s
@@ -174,7 +174,7 @@ interface.s: interface.cpp.s
 
 # target to generate assembly for a file
 interface.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/interface.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/interface.cpp.s
 .PHONY : interface.cpp.s
 
 main.o: main.cpp.o
@@ -182,7 +182,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -190,7 +190,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -198,7 +198,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 record.o: record.cpp.o
@@ -206,7 +206,7 @@ record.o: record.cpp.o
 
 # target to build an object file
 record.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/record.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/record.cpp.o
 .PHONY : record.cpp.o
 
 record.i: record.cpp.i
@@ -214,7 +214,7 @@ record.i: record.cpp.i
 
 # target to preprocess a source file
 record.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/record.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/record.cpp.i
 .PHONY : record.cpp.i
 
 record.s: record.cpp.s
@@ -222,7 +222,7 @@ record.s: record.cpp.s
 
 # target to generate assembly for a file
 record.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/db.dir/build.make CMakeFiles/db.dir/record.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/d.dir/build.make CMakeFiles/d.dir/record.cpp.s
 .PHONY : record.cpp.s
 
 # Help Target
@@ -233,7 +233,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... db"
+	@echo "... d"
 	@echo "... Database.o"
 	@echo "... Database.i"
 	@echo "... Database.s"
